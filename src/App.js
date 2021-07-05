@@ -3,6 +3,7 @@ import './App.css'
 import quizService from './Components/index';
 import QuestionBox from './Components/QuestionBox'
 import Result from './Components/Result';
+import foot from './Components/foot';
 
 class App extends Component {
     state={
@@ -39,9 +40,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="Quiz">
+     <center>
+        <div className="Quiz">
+       <div className="title" style={{marginBottom: '20px'}}>
+       <h1>Quiz App</h1>
+        <big>Selected can't be change</big><br />
+       </div>
+       <hr />
         <div className="Container">
-          <h1>Quiz App</h1><button><small>By IMO/EMP design</small></button>
           {this.state.questionBank.length > 0 &&
            this.state.responses < 7 && 
            this.state.questionBank.map(
@@ -57,7 +63,10 @@ class App extends Component {
           )}
         </div>
         {this.state.responses === 7 ? (<Result score={this.state.score} playAgain={this.playAgain} />) : null}
+        <h2>By IMO/EMP design</h2>
       </div>
+      <foot />
+\     </center>
     );
   }
 }
